@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agents-in-azure-playbook"
+version = "0.1.0"
+description = "Public-safe Python samples for agent architecture paths in Azure and Microsoft Foundry."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Cataldir" }]
+keywords = ["azure", "foundry", "agents", "mcp", "a2a", "responses"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.13",
+  "pytest>=8.0",
+  "ruff>=0.8",
+]
+fastapi = [
+  "fastapi>=0.115",
+  "uvicorn>=0.32",
+]
+foundry = [
+  "azure-ai-projects>=2.0.0",
+  "azure-identity>=1.20",
+]
+manifest = ["PyYAML>=6.0"]
+
+[project.urls]
+Repository = "https://github.com/Cataldir/agents-in-azure-playbook"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "ANN", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+mypy_path = "src"

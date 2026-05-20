@@ -1,0 +1,23 @@
+name: agents-in-azure-playbook-hosted
+runtime:
+  kind: hosted-agent
+  ownership: product-team
+container:
+  image: <registry-name>.azurecr.io/agents-in-azure-playbook/hosted-agent-fastapi
+  tag: 2026-05-20-sample
+  platform: linux/amd64
+identity:
+  runtime: agent-identity
+  projectManagedIdentityUsedFor: infrastructure-pull
+registries:
+  acr:
+    endpointReachability: public
+    pullRolePrincipal: project-managed-identity
+protocols:
+  responses: true
+  invocations: false
+  a2a:
+    incomingPreview: true
+    version: "0.3"
+    modality: text
+    auth: entra
