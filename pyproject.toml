@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agents-in-azure-playbook"
 version = "0.1.0"
-description = "Public-safe Python samples for agent architecture paths in Azure and Microsoft Foundry."
+description = "Production-oriented Python samples for agent architecture paths in Azure and Microsoft Foundry."
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"

@@ -1,6 +1,6 @@
 # Agents in Azure Playbook
 
-Compact, public-safe Python samples for explaining agent architecture choices in Microsoft Foundry and Azure. The repository is designed to support blog posts about three practical implementation paths:
+Compact, production-oriented Python samples for explaining agent architecture choices in Microsoft Foundry and Azure. The repository is designed to support blog posts about three practical implementation paths:
 
 - Code Agents: a code-first sample label for creating and invoking a prompt agent through the Foundry SDK boundary.
 - Hosted Agents: a hosted-agent manifest and FastAPI Responses adapter pattern, with validation and operations notes.
@@ -17,7 +17,7 @@ Agent projects tend to mix product capability, application runtime, protocol rou
 - MCP is treated as a tool and capability plane.
 - A2A is treated as a peer-agent application plane.
 
-The code is fresh and intentionally small. Holiday Peak Hub is credited as architectural inspiration for public-safe sample framing and Azure-oriented operating notes. Holiday Peak Hub is MIT-compatible source material, but this repository does not copy its private values, logs, or implementation.
+The code is fresh and intentionally small. Holiday Peak Hub is credited as the production-ready multi-agent microservices reference behind the runtime-boundary standards, Azure-oriented operating notes, and sample-repository discipline. Holiday Peak Hub is MIT-compatible source material; this repository extracts its standards into smaller teaching samples rather than copying environment-specific deployment values or full implementation code.
 
 ## Repository Map
 
@@ -26,7 +26,7 @@ src/agents_in_azure_playbook/
   ports.py              # Protocols and dataclasses for model, memory, tools, peers, telemetry
   runtime.py            # Self-hosted runtime router for model, memory, MCP-style, and A2A-style paths
   responses_adapter.py  # Adapter between OpenAI Responses-shaped payloads and the runtime
-  manifest.py           # Hosted-agent manifest validation and public-safety checks
+  manifest.py           # Hosted-agent manifest validation and publishing guardrail checks
   fakes.py              # In-memory ports for local tests and samples
 samples/
   code-agent-foundry/   # Optional Foundry SDK prompt-agent boundary sample
@@ -81,9 +81,9 @@ python samples/hosted-agent-fastapi/app.py
 - The runtime agent identity is different from the project managed identity. Runtime permissions for tools and downstream services belong on the agent identity.
 - Incoming Foundry A2A is preview, requires the Responses protocol, supports A2A protocol version 0.3, uses Microsoft Entra authentication, and is text-only in the current documented preview.
 
-## Public-Safety Rules
+## Publishing Guardrails
 
-This repo is intended to be safe for public publishing. Do not add:
+This repo is public and should remain reusable. Do not add:
 
 - Secrets, tokens, passwords, keys, or connection strings.
 - Cloud account identifiers, directory identifiers, object identifiers, or private endpoints.
